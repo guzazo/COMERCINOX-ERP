@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la ~/Projetos/COMERCINOX-ERP 2>&1 | head; echo \"===\"; ls ~/Projetos 2>&1 | head)",
+      "Bash(git -C ~/Downloads/COMERCINOX-ERP branch -a)",
+      "Bash(gh auth *)",
+      "Bash(brew install *)"
+    ]
+  }
+}
