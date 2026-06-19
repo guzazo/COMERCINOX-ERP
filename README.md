@@ -134,4 +134,4 @@ Qualquer novo módulo deve obrigatoriamente seguir este fluxo:
 
 ---
 
-*Última atualização: 2025 | Versão do documento: 1.0.0*
+*Última atualização: 2026 | Versão do documento: 1.0.0*
