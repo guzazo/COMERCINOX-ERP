@@ -1,5 +1,5 @@
 # COMERCINOX ERP
-> Repositório oficial de descoberta, documentação, arquitetura e desenvolvimento do ERP Comercialinox.
+> Repositório oficial de descoberta, documentação, arquitetura e desenvolvimento do ERP Comercinox.
 
 ---
 
