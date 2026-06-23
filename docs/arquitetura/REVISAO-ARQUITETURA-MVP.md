@@ -115,8 +115,69 @@ COMERCIAL          CATÁLOGO            RELATÓRIOS              CONFIGURAÇÕES
 
 ---
 
+---
+
+# ADENDO v2 — Auditoria de evidências (2026-06-23)
+
+> Reanálise após novas capturas (suite ZUMA, Pré-venda, Caixa, Fluxo, Romaneio, NF, folha/fechamento
+> manuais). Ver [ENTIDADES-DOMINIO](ENTIDADES-DOMINIO.md) e [MAPA-NAVEGACAO-ZUMA](../descoberta-zuma/MAPA-NAVEGACAO-ZUMA.md).
+
+## A. Entidades ainda não modeladas (novas)
+Pré-venda/Orçamento + Item · Devolução · Caixa/Lançamento · Previsão de fluxo · Romaneio/Carga/
+Rota/Veículo/Entrega · Separação · NF/Operação fiscal · **Empresa / Grupo Empresarial** ·
+Adiantamento · Despesa de viagem · Fechamento de comissão.
+
+## B. Regras de negócio não mapeadas antes
+27 novas (RN-PRV, RN-LOG, RN-FIN, RN-FIS, RN-COM, RN-SIS-005/006). Destaques: pré-venda À Prazo
+padrão; pré-venda alimenta separação/entrega; pedido a prazo é compromisso financeiro; devolução
+reduz comissão; fechamento manual com adiantamentos e despesas.
+
+## C. Fluxos ausentes identificados
+1. **Orçamento → Pedido → Separação → Entrega → NF** (cadeia comercial-logística real).
+2. **Pré-venda → Recebimento no caixa** (Pré-venda Financeiro).
+3. **Fechamento de comissão** (venda líquida − devolução − adiantamento + despesas).
+
+## D. Dependências críticas
+- Orçamento depende de: Cliente, Tabela de preço, Estoque, Vendedor.
+- Comissão depende de: Venda, **Devolução**, Adiantamento, Regra de comissão.
+- **Multi-empresa** (se confirmado) é dependência transversal de TODAS as entidades.
+
+## E. Riscos de retrabalho (novos)
+| R | Risco | Mitigação |
+|---|---|---|
+| R9 | Ignorar **multi-empresa** | **Decidir antes de modelar.** Se confirmado, `empresa_id` em tudo desde o schema |
+| R10 | Orçamento sem ligação a pedido/entrega | Modelar pré-venda como raiz do ciclo comercial |
+| R11 | Comissão sem devolução/adiantamento | Incluir esses fatores na regra desde o MVP |
+| R12 | Tratar "Orçamentos" como tela nova ignorando o ZumaPDV | Espelhar o que já funciona na pré-venda |
+
+## F. Entra no MVP (com justificativa por evidência)
+| Item | Justificativa |
+|---|---|
+| **Orçamento (pré-venda)** com À Prazo padrão | É a operação diária real (TELA-011, RN-PRV-001) |
+| **Devolução** no modelo de comissão | Reduz base — sem ela a comissão erra (RN-FIS-002, RN-COM) |
+| **Adiantamento** no fechamento | Aparece no fechamento manual (EXT-03) |
+| **Segmento/Grupo, Tabela de preço, Condições comerciais** | Já confirmados (mantidos do v1) |
+
+## G. Fica FORA do MVP (com justificativa)
+| Item | Justificativa |
+|---|---|
+| Caixa, Fluxo/Previsão, Recebimentos | Financeiro permanece no ZUMA (Fase 4) |
+| Romaneio/Entregas, Separação, Veículo, Rota | Logística — Fase 3 (não bloqueia o valor inicial) |
+| NF/NFC/NFS/MDFe e operações fiscais | Obrigação fiscal — permanece no ZUMA |
+| Folha/RH, jornada motorista | Externo ao ZUMA (contador); não é dor do CRM |
+| Despesas de viagem no acerto | Fase 3 (refinamento da comissão) |
+| Produção (PCP/WMS) | Provavelmente do grupo industrial, não da Comercinox |
+
+## H. Decisão que BLOQUEIA a modelagem (validar já)
+**Multi-empresa (Comercinox / JAPA Indústria / Celinox).** Confiança média (ZumaSeletor + holerite +
+"Grupo Empresarial"). Se confirmado, muda o data model inteiro (tenant por empresa). **Não modelar
+entidades definitivas antes desta resposta.** — registrar como pergunta nº1 das entrevistas.
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Mudanças |
 |---|---|---|
 | 1.0.0 | 2026-06-20 | Revisão crítica — 14 lacunas, 8 riscos de retrabalho, escopo MVP/futuro |
+| 2.0.0 | 2026-06-23 | Adendo pós-auditoria: 12 entidades novas, 4 fluxos, R9–R12, multi-empresa como bloqueador |

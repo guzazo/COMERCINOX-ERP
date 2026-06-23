@@ -147,8 +147,70 @@ telas-fonte: TELA-001 a TELA-010
 
 ---
 
+## NOVOS MÓDULOS — Auditoria 2026-06-23 (evidências adicionais)
+
+> Regras extraídas das telas novas (Pré-venda/ZumaPDV, Caixa, Fluxo, Romaneio, NF) e dos
+> processos manuais (fechamento de comissão e jornada do motorista).
+
+### MÓDULO: PRÉ-VENDA / ORÇAMENTO (ZumaPDV)
+| ID | Regra | Tela | Status | Criticidade |
+|---|---|---|---|---|
+| RN-PRV-001 | Pré-venda tem condição À Vista/À Prazo — **À Prazo é o padrão** | TELA-011 | Confirmada | Alta |
+| RN-PRV-002 | Total da pré-venda soma IPI, Despesas, Frete e Desconto | TELA-011 | Confirmada | Alta |
+| RN-PRV-003 | "Lucratividade da venda" calculável na pré-venda (margem) | TELA-011 | Confirmada | Média |
+| RN-PRV-004 | Pré-venda pode ser **travada/liberada** e **clonada** | TELA-011 | Confirmada | Média |
+| RN-PRV-005 | Pré-venda gera **separação** e alimenta o **painel de entregas/romaneio** | TELA-011/016 | Confirmada | Alta |
+| RN-PRV-006 | Orçamento é enviado por **e-mail PDF/HTML** ao cliente | TELA-011 | Confirmada | Média |
+| RN-PRV-007 | Numeração sequencial contínua de pré-venda (ex.: 78911) | TELA-011 | Confirmada | Baixa |
+
+### MÓDULO: LOGÍSTICA / ENTREGAS (ZumaRomaneio)
+| ID | Regra | Tela | Status | Criticidade |
+|---|---|---|---|---|
+| RN-LOG-001 | Entrega nasce da **pré-venda** (P.V. → romaneio → carga) | TELA-016 | Confirmada | Alta |
+| RN-LOG-002 | Carga agrupa por **rota/veículo/motorista** | TELA-016 | Confirmada | Média |
+| RN-LOG-003 | Unidades reais: **KG, MT, PC, UN** | TELA-016 | Confirmada | Média |
+| RN-LOG-004 | Status de entrega: Aberto/Baixado/Devolvido/Pendente/Recolhimento | TELA-016 | Confirmada | Média |
+| RN-LOG-005 | "Devolvido" conecta-se à devolução fiscal (estoque/comissão) | TELA-016/017 | Inferida ❓ | Alta |
+
+### MÓDULO: FINANCEIRO / CAIXA
+| ID | Regra | Tela | Status | Criticidade |
+|---|---|---|---|---|
+| RN-FIN-001 | **Pedido a prazo é compromisso financeiro** (entra na previsão) | TELA-013 | Confirmada | Alta |
+| RN-FIN-002 | Previsão de fluxo projeta 0–30 / 31–61 / 62–92 dias | TELA-013 | Confirmada | Média |
+| RN-FIN-003 | Caixa tem abertura e movimentos E/S por forma de pagamento | TELA-014 | Confirmada | Média |
+| RN-FIN-004 | **Pré-venda Financeiro** vincula a pré-venda ao caixa (recebimento) | TELA-014 | Confirmada | Alta |
+| RN-FIN-005 | Conciliação trata estornos de entrada e saída separadamente | TELA-015 | Confirmada | Média |
+
+### MÓDULO: FISCAL (ZumaNF)
+| ID | Regra | Tela | Status | Criticidade |
+|---|---|---|---|---|
+| RN-FIS-001 | A operação da NF define o efeito no estoque | TELA-017 | Confirmada | Alta |
+| RN-FIS-002 | **Devolução de Cliente** é NF de entrada → reduz venda/comissão | TELA-017 | Confirmada ⚠️ | Alta |
+| RN-FIS-003 | Transferência move estoque entre **locais** | TELA-017 | Confirmada | Média |
+
+### MÓDULO: COMISSÃO / RH (processo manual)
+| ID | Regra | Origem | Status | Criticidade |
+|---|---|---|---|---|
+| RN-COM-001 | Fechamento de comissão é **manual (papel + Excel)** | EXT-03 | Confirmada ⚠️ | Alta |
+| RN-COM-002 | Fechamento desconta **adiantamentos** do vendedor | EXT-03 | Confirmada | Alta |
+| RN-COM-003 | Há **despesas de viagem** (alimentação/pernoite) no acerto | EXT-03 | Confirmada | Média |
+| RN-COM-004 | RH/Folha (CLT, hora extra, INSS/FGTS) é **externo ao ZUMA** | EXT-01 | Confirmada | Média |
+| RN-COM-005 | Folha é emitida em nome da **JAPA Indústria** (grupo de empresas) | EXT-01 | Confirmada ❓ | Alta |
+
+### MÓDULO: SISTEMA — multi-empresa
+| ID | Regra | Origem | Status | Criticidade |
+|---|---|---|---|---|
+| RN-SIS-005 | **ZumaSeletor** sugere operação **multi-empresa** (Comercinox/JAPA/Celinox) | print PROGRAMAS + holerite | Hipótese (média) | Alta |
+| RN-SIS-006 | Cliente tem campo "Grupo Empresarial" | TELA-001 | Confirmada | Média |
+
+> **Total acumulado:** 51 (Sprint 01) + 27 (auditoria 2026-06-23) = **78 regras**.
+> Itens ❓/Hipótese exigem validação nas entrevistas.
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Mudanças |
 |---|---|---|
 | 1.0.0 | 2025-06-19 | Criação — 51 regras extraídas de 10 telas mapeadas na Sprint 01 |
+| 2.0.0 | 2026-06-23 | +27 regras (Pré-venda, Logística, Financeiro/Caixa, Fiscal, Comissão/RH, multi-empresa) |

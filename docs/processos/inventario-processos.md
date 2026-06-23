@@ -130,6 +130,43 @@ telas-fonte: TELA-001 a TELA-010
 
 ---
 
+## Área 9 — Logística / Entregas (NOVO — ZumaRomaneio)
+
+| # | Processo | Fase | Criticidade | Tela-fonte |
+|---|---|---|---|---|
+| P-43 | Gerar romaneio a partir das pré-vendas | ⚡ Fase 3 | 🔴 | TELA-016 |
+| P-44 | Montar carga / rota (veículo + motorista) | ⚡ Fase 3 | 🟡 | TELA-016 |
+| P-45 | Separação de mercadoria (picking) | ⚡ Fase 3 | 🟡 | TELA-011/016 |
+| P-46 | Acompanhar status de entrega / devolução | ⚡ Fase 3 | 🔴 | TELA-016 |
+
+## Área 10 — Caixa / Financeiro operacional (NOVO)
+
+| # | Processo | Fase | Criticidade | Tela-fonte |
+|---|---|---|---|---|
+| P-47 | Abertura e lançamentos do caixa (E/S) | 💤 ZUMA | 🔴 | TELA-014 |
+| P-48 | Consistência / conciliação do caixa | 💤 ZUMA | 🔴 | TELA-015 |
+| P-49 | Previsão de fluxo financeiro (0–92 dias) | 💤 ZUMA | 🟡 | TELA-013 |
+| P-50 | Vincular recebimento à pré-venda (Pré-venda Financeiro) | 💤 ZUMA | 🟡 | TELA-014 |
+
+## Área 11 — Fechamento de comissão & RH (NOVO — manual/externo)
+
+| # | Processo | Fase | Criticidade | Tela-fonte |
+|---|---|---|---|---|
+| P-51 | **Fechar comissão do mês (papel + Excel)** | 🔥 MVP | 🔴 | EXT-03 |
+| P-52 | Descontar adiantamentos no acerto | 🔥 MVP | 🔴 | EXT-03 |
+| P-53 | Apurar despesas de viagem (alimentação/pernoite) | ⚡ Fase 3 | 🟡 | EXT-03 |
+| P-54 | Controle de jornada do motorista (papel) | ⚡ Fase 3 | 🟡 | EXT-02 |
+| P-55 | Folha de pagamento (sistema contábil externo) | 🚫 Externo | 🟡 | EXT-01 |
+
+## Área 12 — Fiscal (NOVO — ZumaNF, permanece no ZUMA)
+
+| # | Processo | Fase | Criticidade | Tela-fonte |
+|---|---|---|---|---|
+| P-56 | Emitir NF por operação (venda/transferência) | 🚫 Fiscal | 🔴 | TELA-017 |
+| P-57 | Registrar devolução de cliente (NF entrada) | 🚫 Fiscal | 🔴 | TELA-017 |
+
+---
+
 ## Resumo
 
 | Área | Processos | MVP 🔥 |
@@ -142,7 +179,11 @@ telas-fonte: TELA-001 a TELA-010
 | 6. Compras | 5 | 0 |
 | 7. Financeiro | 5 | 0 |
 | 8. Sistema / Administração | 3 | 3 |
-| **TOTAL** | **42** | **24** |
+| 9. Logística / Entregas | 4 | 0 |
+| 10. Caixa / Financeiro op. | 4 | 0 |
+| 11. Comissão & RH (manual) | 5 | 2 |
+| 12. Fiscal | 2 | 0 |
+| **TOTAL** | **57** | **26** |
 
 ---
 
@@ -151,3 +192,4 @@ telas-fonte: TELA-001 a TELA-010
 | Versão | Data | Mudanças |
 |---|---|---|
 | 1.0.0 | 2025-06-19 | Criação — 42 processos em 8 áreas, priorizados por fase |
+| 2.0.0 | 2026-06-23 | +15 processos (Logística, Caixa, Comissão/RH manual, Fiscal) = 57 |
