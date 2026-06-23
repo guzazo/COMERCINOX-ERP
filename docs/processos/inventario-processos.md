@@ -165,6 +165,39 @@ telas-fonte: TELA-001 a TELA-010
 | P-56 | Emitir NF por operação (venda/transferência) | 🚫 Fiscal | 🔴 | TELA-017 |
 | P-57 | Registrar devolução de cliente (NF entrada) | 🚫 Fiscal | 🔴 | TELA-017 |
 
+## Área 13 — Aprovação Comercial (NOVO — proprietário)
+
+| # | Processo | Fase | Criticidade | Origem |
+|---|---|---|---|---|
+| P-58 | Aplicar desconto dentro do teto do vendedor | 🔥 MVP | 🔴 | RN-APR-001 |
+| P-59 | **Solicitar aprovação de desconto ao proprietário** | ⚡ Fase 2 | 🔴 | RN-APR-002 |
+| P-60 | Aprovar/recusar com registro (histórico) | ⚡ Fase 2 | 🟡 | RN-APR-004 |
+
+---
+
+## Detalhamento AS-IS dos processos manuais (esclarecido 2026-06-23)
+
+### P-51/P-58..60 — Fechamento administrativo & aprovação
+- **P-51 Fechamento mensal** — responsável **Roberta**; papel; 1ª semana do mês seguinte; fora do
+  ZUMA. Insumos: vendas/vendedor (ZUMA) + adiantamentos + horas extras + alimentação + dados do
+  motorista. Saída: valores para a **contabilidade**. *(crítico, externo, automação futura)*
+- **P-58→60 Aprovação de desconto** — vendedor monta orçamento (ZumaPDV) → ZUMA calcula preço →
+  **proprietário** avalia preço/margem/perfil → libera (ou não) desconto extra. Hoje **informal**,
+  sem histórico. Mais comum em cliente novo/negociação.
+
+### P-54 — Horas extras do motorista (somente motorista faz)
+Formulário físico impresso → motorista preenche chegada/almoço/retorno/término → entrega ao
+administrativo → lançamento manual em Excel → Excel calcula horas extras → envia à **contadora** →
+contadora faz o cálculo final. *(manual, externo, dependente de planilha e de contador; fórmula
+trabalhista não é dominada pela empresa)*
+
+### Benefícios (regra operacional — externo)
+- Interno: **R$10/dia**, mín. 20 dias (~R$210), PIX mensal · 4 internos.
+- Motorista: **almoço R$30/dia**; **pernoite R$38 + jantar automático R$30 = R$68**.
+
+> Estes processos **não entram no MVP** — são trabalhistas/contábeis externos. O ERP pode, no
+> futuro, **exportar** a comissão comercial para reduzir o trabalho manual da Roberta.
+
 ---
 
 ## Resumo
@@ -183,7 +216,8 @@ telas-fonte: TELA-001 a TELA-010
 | 10. Caixa / Financeiro op. | 4 | 0 |
 | 11. Comissão & RH (manual) | 5 | 2 |
 | 12. Fiscal | 2 | 0 |
-| **TOTAL** | **57** | **26** |
+| 13. Aprovação Comercial | 3 | 1 |
+| **TOTAL** | **60** | **27** |
 
 ---
 
@@ -193,3 +227,4 @@ telas-fonte: TELA-001 a TELA-010
 |---|---|---|
 | 1.0.0 | 2025-06-19 | Criação — 42 processos em 8 áreas, priorizados por fase |
 | 2.0.0 | 2026-06-23 | +15 processos (Logística, Caixa, Comissão/RH manual, Fiscal) = 57 |
+| 2.1.0 | 2026-06-23 | +Aprovação comercial (P-58..60) e AS-IS dos manuais (Roberta, motorista) = 60 |

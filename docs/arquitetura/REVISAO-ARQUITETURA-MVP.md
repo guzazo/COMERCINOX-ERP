@@ -168,10 +168,60 @@ reduz comissão; fechamento manual com adiantamentos e despesas.
 | Despesas de viagem no acerto | Fase 3 (refinamento da comissão) |
 | Produção (PCP/WMS) | Provavelmente do grupo industrial, não da Comercinox |
 
-## H. Decisão que BLOQUEIA a modelagem (validar já)
-**Multi-empresa (Comercinox / JAPA Indústria / Celinox).** Confiança média (ZumaSeletor + holerite +
-"Grupo Empresarial"). Se confirmado, muda o data model inteiro (tenant por empresa). **Não modelar
-entidades definitivas antes desta resposta.** — registrar como pergunta nº1 das entrevistas.
+## H. Multi-empresa — ✅ RESOLVIDO (não é bloqueador)
+**Esclarecido pelo cliente (2026-06-23):** existem **3 CNPJs, mas 2 foram criados apenas para
+manobra tributária e estão dormentes — a operação usa SOMENTE UM.** Portanto:
+- **Não há multi-empresa operacional.** O MVP **não** precisa de `empresa_id`/tenant.
+- Os 2 CNPJs (JAPA / Celinox) são **estrutura fiscal**, não dimensão de dados.
+- **Risco R9 rebaixado** de bloqueador para "nota fiscal/contábil". A modelagem das telas pode seguir.
+
+---
+
+# ADENDO v3 — Processos externos + aprovação comercial (2026-06-23)
+
+> Novas evidências (.HEIC) detalhadas pelo cliente: fechamento administrativo (Roberta), horas
+> extras do motorista, benefícios/alimentação, restrição de licença ZUMA e **aprovação de desconto
+> pelo proprietário**.
+
+## I. Aprovação comercial de desconto (regra crítica nova)
+**Fluxo real:** vendedor monta orçamento no ZumaPDV → proprietário avalia preço/margem/perfil →
+decide desconto adicional (comum em cliente novo/negociação). Hoje é **informal**, depende do
+julgamento do dono = gargalo.
+
+| Capacidade | Fase | Justificativa (evidência) |
+|---|---|---|
+| **Limite de desconto por vendedor** (bloqueia/sinaliza ao exceder) | 🔥 **MVP** | Regra já existe (RN-FNC-005/RN-CLI-005); barato; usa dado existente; previne erro |
+| **Solicitação de aprovação** (vendedor → proprietário) | **Fase 2** | Depende do orçamento MVP + papel proprietário; tira o gargalo informal |
+| **Aprovação + histórico de aprovações** | **Fase 2** | Auditoria de desconto; só faz sentido após o fluxo de solicitação |
+| **Regras automáticas de margem mínima** | Fase 3 | Precisa de custo confiável (lucratividade do PDV) |
+
+> **Não inflar o MVP:** só o *limite por vendedor* entra agora. O *workflow* de aprovação é Fase 2.
+
+## J. Impacto no modelo de permissões
+- Reforça o RBAC do MVP: **proprietário** = papel com poder de aprovar desconto além do teto.
+- Campo por vendedor: `desconto_max_%` e `pode_solicitar_aprovacao`.
+- Fase 2: estado do orçamento `aguardando_aprovacao` + ação do proprietário.
+
+## K. Impacto no processo de comissão
+O **fechamento mensal** (Roberta, papel, 1ª semana) mistura: comissão de venda **+ adiantamentos +
+horas extras + alimentação + dados do motorista** para a contabilidade.
+- **MVP de comissão = só a parte comercial:** venda líquida − devoluções − **adiantamentos** × %.
+- Horas extras, alimentação e folha **não entram no MVP** (são trabalhistas/contábeis, externos).
+- O ERP pode **exportar** o total de comissão para alimentar o fechamento da Roberta (reduz papel).
+
+## L. Restrição de licença ZUMA (risco operacional)
+Módulos como **ZUMA NF-e têm licença de usuário único** (1 acesso simultâneo) → gargalo e risco de
+escalabilidade. **Não afeta o MVP** (fiscal fica no ZUMA), mas é argumento de migração futura e
+deve constar nos riscos de dependência.
+
+## M. Separação por fase (consolidada)
+| Capacidade | Fase | Origem |
+|---|---|---|
+| Cliente, Orçamento (prazo padrão), Catálogo consulta, Comissão (venda−dev−adiant.), CRM, Dashboard, **Limite de desconto/vendedor** | **MVP** | EPIC-001 + evidências |
+| **Workflow de aprovação de desconto** (solicitação→aprovação→histórico), Pedido (conversão) | **Fase 2** | proprietário (.HEIC) |
+| Logística/Romaneio, Despesas de viagem, Margem mínima automática, leitura de recebíveis | **Fase 3** | TELA-016, fechamento |
+| **Automação do fechamento administrativo** (Roberta), **horas extras motorista**, benefícios/alimentação | **Oportunidade futura** | fechamentoMes, formularioMotorista (.HEIC) |
+| Folha/RH, Fiscal (NF/NFC/MDFe), Produção (PCP/WMS) | **Fora de escopo** | externo/contador/grupo |
 
 ---
 
@@ -181,3 +231,4 @@ entidades definitivas antes desta resposta.** — registrar como pergunta nº1 d
 |---|---|---|
 | 1.0.0 | 2026-06-20 | Revisão crítica — 14 lacunas, 8 riscos de retrabalho, escopo MVP/futuro |
 | 2.0.0 | 2026-06-23 | Adendo pós-auditoria: 12 entidades novas, 4 fluxos, R9–R12, multi-empresa como bloqueador |
+| 3.0.0 | 2026-06-23 | Multi-empresa RESOLVIDO (1 CNPJ operacional); aprovação de desconto; licença ZUMA; fases MVP/2/3/futuro |

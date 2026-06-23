@@ -93,10 +93,19 @@ objetivo: visão única das entidades reais antes da modelagem definitiva
 | Entidade | Papel | MVP | Origem | Conf. |
 |---|---|---|---|---|
 | **Usuário** (login) ≠ Funcionário | autenticação, estação | 🔥 | RN-SIS-001, TELA-009 | A |
-| **Papel / Permissão** | RBAC (ver comissão, editar condições/limites) | 🔥 | RN-FNC-005/006 | B |
-| **Empresa** | entidade faturada | ⚡/H | holerite JAPA, "Grupo Empresarial" | B |
-| **Grupo Empresarial** | Comercinox / JAPA / Celinox | H | ZumaSeletor, holerite | B/H |
+| **Papel / Permissão** | RBAC; **Proprietário** aprova desconto acima do teto | 🔥 | RN-FNC-005/006, RN-APR | A |
+| **Aprovação de Desconto** | solicitação→aprovação→histórico (orçamento) | **Fase 2** | RN-APR (proprietário) | A |
+| **Empresa / CNPJ** | 3 CNPJs; **2 dormentes (manobra fiscal), 1 operacional** | ❌ não-MVP (sem tenant) | cliente 2026-06-23 | A |
 | **Segmento / Ramo de Atividade** | classificação de cliente (CMI…) | 🔥 | RN-CLI-011, TELA-008 | A |
+
+## 8. RH / Benefícios (externo ao ERP)
+
+| Entidade | Papel | MVP | Origem | Conf. |
+|---|---|---|---|---|
+| **Fechamento Administrativo** | consolidação mensal (Roberta) p/ contabilidade | Oportunidade futura | fechamentoMes | B |
+| **Benefício / Vale-alimentação** | interno: R$10/dia, mín. 20 dias (~R$210); motorista: almoço R$30/dia | Oportunidade futura | folhaMotorista | B |
+| **Pernoite + Jantar** (motorista) | R$38/pernoite + **R$30 jantar automático** = R$68 | Oportunidade futura | folhaMotorista | B |
+| **Hora Extra** (somente motorista) | formulário→Excel→contadora (fórmula desconhecida) | Oportunidade futura | formularioMotorista | B |
 
 ---
 
@@ -107,10 +116,12 @@ Adiantamento · Despesa de viagem · Fechamento de comissão.
 
 ## Decisões de modelagem que evitam retrabalho
 1. **Comissionado** como abstração (vendedor/indicador) — não acoplar comissão a "vendedor".
-2. **Empresa** como dimensão desde o início **se** multi-empresa confirmado (alto impacto — validar **antes** de modelar).
+2. **SEM tenant de empresa no MVP** — operação usa 1 CNPJ; os outros 2 são manobra fiscal dormente.
 3. **Pré-venda** como entidade central do comercial (orçamento→pedido→separação→entrega→NF).
 4. **Devolução** existe no modelo do Comercinox (afeta comissão/funil) mesmo sem emitir NF.
-5. **Fechamento de comissão** inclui adiantamentos e despesas — não é só "venda × %".
+5. **Fechamento de comissão** = venda líquida − devoluções − **adiantamentos** × %. Benefícios/horas extras são externos.
+6. **Aprovação de desconto**: MVP guarda só o *limite por vendedor*; o *workflow* de aprovação é Fase 2.
 
 ## Histórico
 | 1.0.0 | 2026-06-23 | Criação — catálogo de entidades pós-auditoria |
+| 1.1.0 | 2026-06-23 | Multi-empresa rebaixado (1 CNPJ); +Aprovação de Desconto, Benefícios, Hora Extra, Fechamento |

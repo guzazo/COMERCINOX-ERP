@@ -197,14 +197,34 @@ telas-fonte: TELA-001 a TELA-010
 | RN-COM-004 | RH/Folha (CLT, hora extra, INSS/FGTS) é **externo ao ZUMA** | EXT-01 | Confirmada | Média |
 | RN-COM-005 | Folha é emitida em nome da **JAPA Indústria** (grupo de empresas) | EXT-01 | Confirmada ❓ | Alta |
 
-### MÓDULO: SISTEMA — multi-empresa
+### MÓDULO: SISTEMA — empresa & licença
 | ID | Regra | Origem | Status | Criticidade |
 |---|---|---|---|---|
-| RN-SIS-005 | **ZumaSeletor** sugere operação **multi-empresa** (Comercinox/JAPA/Celinox) | print PROGRAMAS + holerite | Hipótese (média) | Alta |
-| RN-SIS-006 | Cliente tem campo "Grupo Empresarial" | TELA-001 | Confirmada | Média |
+| RN-SIS-005 | **3 CNPJs existem, mas 2 são manobra fiscal dormente — opera-se SOMENTE 1** | cliente 2026-06-23 | **Confirmada** | Alta |
+| RN-SIS-006 | Cliente tem campo "Grupo Empresarial" (uso pontual, não multi-tenant) | TELA-001 | Confirmada | Baixa |
+| RN-SIS-007 | Módulos ZUMA têm **licença de usuário único** (ex.: NF-e = 1 acesso simultâneo) | zumadivido | Confirmada | Alta |
 
-> **Total acumulado:** 51 (Sprint 01) + 27 (auditoria 2026-06-23) = **78 regras**.
-> Itens ❓/Hipótese exigem validação nas entrevistas.
+### MÓDULO: APROVAÇÃO COMERCIAL (proprietário)
+| ID | Regra | Origem | Status | Criticidade |
+|---|---|---|---|---|
+| RN-APR-001 | Vendedor tem **teto de desconto**; acima disso exige aprovação | RN-FNC-005, cliente | Confirmada | Alta |
+| RN-APR-002 | **Proprietário aprova desconto adicional** avaliando preço/margem/perfil | cliente (ZumaPDV) | Confirmada | Alta |
+| RN-APR-003 | Aprovação é mais comum em **cliente novo / negociação especial** | cliente | Confirmada | Média |
+| RN-APR-004 | Hoje a aprovação é **informal** (julgamento do dono) — sem histórico | cliente | Confirmada | Alta |
+| RN-APR-005 | Lucratividade/margem da venda é consultável no orçamento (apoia decisão) | TELA-011, RN-PRV-003 | Confirmada | Média |
+
+### MÓDULO: BENEFÍCIOS / RH OPERACIONAL (externo ao ERP)
+| ID | Regra | Origem | Status | Criticidade |
+|---|---|---|---|---|
+| RN-BEN-001 | Vale-alimentação interno: **R$10/dia, mín. 20 dias (~R$210)**, via PIX mensal; 4 internos | folhaMotorista | Confirmada | Média |
+| RN-BEN-002 | Motorista: **almoço R$30/dia** trabalhado | folhaMotorista | Confirmada | Média |
+| RN-BEN-003 | Motorista: **pernoite R$38** + **R$30 de jantar automático** = R$68 | folhaMotorista | Confirmada | Média |
+| RN-BEN-004 | **Só o motorista** faz hora extra; controle em formulário→Excel→contadora | formularioMotorista | Confirmada | Média |
+| RN-BEN-005 | Fórmula trabalhista da hora extra é da **contadora** (empresa não domina) | formularioMotorista | Confirmada ❓ | Média |
+| RN-BEN-006 | **Fechamento mensal** é feito por **Roberta**, em papel, na 1ª semana do mês | fechamentoMes | Confirmada | Alta |
+
+> **Total acumulado:** 51 (Sprint 01) + 27 + **17 (esclarecimentos 2026-06-23)** = **95 regras**.
+> Itens ❓ exigem validação. Multi-empresa **resolvido** (não é multi-tenant).
 
 ---
 
@@ -214,3 +234,4 @@ telas-fonte: TELA-001 a TELA-010
 |---|---|---|
 | 1.0.0 | 2025-06-19 | Criação — 51 regras extraídas de 10 telas mapeadas na Sprint 01 |
 | 2.0.0 | 2026-06-23 | +27 regras (Pré-venda, Logística, Financeiro/Caixa, Fiscal, Comissão/RH, multi-empresa) |
+| 2.1.0 | 2026-06-23 | +17 (Aprovação comercial, Benefícios/RH, licença ZUMA); multi-empresa resolvido = 95 |
