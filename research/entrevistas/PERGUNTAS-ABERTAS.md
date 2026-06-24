@@ -15,6 +15,20 @@ objetivo: reduzir incerteza antes de requisitos/wireframe (etapa Validação do 
 
 ---
 
+## 0. Respostas recebidas (descoberta organizacional 2026-06-23)
+
+| Pergunta | Resposta | Classificação | Ação |
+|---|---|---|---|
+| Outros clientes com % especial além da Lucilene? | Só Lucilene (0,5%) identificada até agora | 🟡 **Parcialmente validada** | **Não** virar campo de cadastro ainda; confirmar com Roberta se é exceção única ou padrão |
+| Quem recebe comissão quando um vendedor atende cliente do outro? | Sem regra formal; Polyana/Targino se cobrem; alguns clientes só falam com Wanderson | 🔴 **Lacuna crítica (RN-CAR-002)** | Validar com Roberta, Wanderson, Targino, Polyana |
+| Limite de crédito bloqueia a venda ou é informativo? | Não validado; só há análise manual (Serasa, comprovantes, capital social, aprovação da direção) | 🔴 **Lacuna crítica** | Validar — impacta cadastro, orçamento, pedido, bloqueio |
+
+> **Hipótese de processo (Polyana):** confirmação de pedido por WhatsApp ("ok" do cliente) é tratada
+> como venda confirmada e depois gera devolução/divergência. **Não é erro individual** — investigar se
+> o processo induz. (liga a PROC-005 e ao funil do orçamento). Classificação: 🔴 **Hipótese de processo**.
+
+---
+
 ## 1. Classificação das regras descobertas (PROC-001..006)
 
 | Regra | Conteúdo | Classificação |
@@ -93,3 +107,4 @@ Resumo: **Confirmadas 9 · Parcialmente 4 · Hipótese/Lacuna 3.**
 
 ## Histórico de Versões
 | 1.0.0 | 2026-06-23 | Criação — 23 perguntas por entrevistado + classificação de 16 regras |
+| 1.1.0 | 2026-06-23 | +Seção 0 (respostas recebidas): comissão especial parcial, RN-CAR-002 e limite = lacunas críticas; hipótese WhatsApp |

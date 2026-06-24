@@ -1,160 +1,103 @@
 ---
 id: USR-001
-título: Personas de Usuários — Comercinox
-status: rascunho (validar após entrevistas)
-versão: 1.0.0
+título: Personas Operacionais — Comercinox
+status: em-revisão (validar nas entrevistas)
+versão: 2.0.0
 criado-em: 2025
+atualizado-em: 2026-06-23
+origem: descoberta organizacional 2026-06-23
+relacionado-com: MAPA-INFLUENCIA-ORGANIZACIONAL, PERGUNTAS-ABERTAS, ROTEIRO-ENTREVISTA
 ---
 
-# Personas de Usuários — Comercinox
+# Personas Operacionais — Comercinox
 
-> ⚠️ **Atenção:** Estas personas são **hipóteses iniciais** baseadas no contexto conhecido.
-> Devem ser validadas e refinadas após as entrevistas da SPRINT-01.
-
----
-
-## Persona 1: O Proprietário / Gestor
-
-| Campo | Valor |
-|---|---|
-| Nome fictício | Seu João / Sua Maria |
-| Cargo | Proprietário / Gestor |
-| Frequência de uso do ERP | Diária |
-| Nível técnico | Baixo a médio |
-| Dispositivos | Desktop (Windows) + possivelmente celular |
-| Principal interesse no sistema | Ver resultados, vendas, inadimplência, estoque |
-
-### Dores hipotéticas (validar)
-- Dificuldade de ver resumo do dia/semana de forma rápida
-- Não sabe quais clientes estão inativos
-- Precisa de mais de uma tela para ter visão geral do negócio
-- Dificuldade com relatórios complexos do ZUMA
-
-### O que mais valoriza (hipótese)
-- Simplicidade: poucas telas, informação direta
-- Dashboard com os números mais importantes
-- Não depender de terceiros para gerar relatórios
-
-### Tarefas típicas no sistema
-- [ ] Ver vendas do dia/semana/mês
-- [ ] Verificar inadimplência
-- [ ] Consultar estoque de produtos principais
-- [ ] Ver comissão de vendedores
+> **v2.0:** substitui as personas hipotéticas por **pessoas reais** identificadas na operação.
+> Maturidade digital e resistência são escalas de 1–5 / baixa-alta (autoavaliação de descoberta, validar).
 
 ---
 
-## Persona 2: O Responsável Comercial / Vendedor
+## PERSONA-001 — WANDERSON · Fundador / Proprietário (41)
+- **Empresa** fundada em 2019. Já faturou ~R$1 mi/mês; hoje ~R$300 mil/mês; em reestruturação.
+- **Perfil:** domínio do mercado de inox, networking, comunicação, confiança da equipe.
+- **Comportamento:** não usa todo o ZUMA; prefere prática a processo; compra estoque por *feeling*;
+  não abre mão de autonomia/controle; pouca familiaridade com gestão moderna.
+- **Classificação:** Poder **Muito Alto** · Maturidade digital **2/5** · Resistência **Média/Alta**.
+- **Implicação de produto:** o ERP **não substitui** o processo decisório dele — **apoia com informação**
+  (dashboard, margem, histórico). Não impor fluxo rígido.
 
-| Campo | Valor |
-|---|---|
-| Nome fictício | Carlos / Ana |
-| Cargo | Vendedor / Responsável Comercial |
-| Frequência de uso do ERP | Diária — várias vezes ao dia |
-| Nível técnico | Médio |
-| Dispositivos | Desktop + celular (WhatsApp é primário) |
-| Principal interesse | Gerenciar clientes, orçamentos, follow-ups |
+## PERSONA-002 — ROBERTA · Administrativo / Financeiro (39)
+- **Responsabilidades:** contas a pagar, fechamento de caixa, **comissão**, benefícios, folha
+  (operacional), **crédito de clientes**.
+- **Perfil:** forte no Excel, muito papel, cria controles paralelos, confia mais em planilha que em sistema.
+- **Influência:** **principal conselheira de Wanderson**; participa de decisões estratégicas.
+- **Classificação:** Poder **Alto** · Maturidade **3/5** · Resistência **Média**.
+- **Implicação:** **principal usuária administrativa** do ERP. Migração **gradual**, respeitar/importar
+  Excel, co-criar. Conquistá-la = adoção; perdê-la = projeto trava.
 
-### Dores hipotéticas (validar)
-- Histórico de clientes espalhado no WhatsApp
-- Follow-ups esquecidos
-- Dificuldade para saber quais clientes não compram há tempo
-- Orçamentos perdidos
-- Não sabe em qual estágio do funil está cada cliente
+## PERSONA-003 — GUILHERME · Inovação / Desenvolvimento (18)
+- Estudante de Ciência da Computação; automação, software, modernização.
+- **Perfil DISC: AP** — analítico, orientado a processos, busca eficiência.
+- Projetos: ERP Comercialinox, Mercado Livre, automações internas.
+- **Classificação:** Poder **Baixo** · Maturidade **5/5** · Resistência **Muito baixa**.
+- **Implicação:** **possível Product Owner** do ERP — ponte entre operação e desenvolvimento.
 
-### O que mais valoriza (hipótese)
-- Acesso rápido ao histórico de cada cliente
-- Lembretes de follow-up
-- Poder ver orçamentos enviados e pendentes
-- Interface simples e rápida
+## PERSONA-004 — BENINI · Estoque / Operações (+5 anos)
+- **Responsabilidades:** recebimento, **conferência de devoluções**, organização do estoque,
+  preparação de caminhões, abertura da empresa.
+- **Perfil:** muito confiável, forte conhecimento operacional e logístico.
+- **Classificação:** Maturidade **2/5** · Resistência **Média/Alta** · Poder baixo (operacional crítico).
+- **Implicação:** dono do passo físico da devolução (PROC-005) e do estoque — UI simples, pouco texto.
 
-### Tarefas típicas no sistema
-- [ ] Consultar/cadastrar cliente
-- [ ] Criar orçamento
-- [ ] Registrar interação com cliente
-- [ ] Ver clientes sem contato recente
-- [ ] Registrar follow-up
+## PERSONA-005 — TARGINO · Vendedor (+5 anos)
+- Atendimento comercial, WhatsApp, telefone, orçamentos.
+- **Classificação:** Maturidade **2/5** · Resistência **Média** · Poder baixo.
+- **Implicação:** usuário diário do orçamento/cliente; velocidade e simplicidade.
 
----
+## PERSONA-006 — POLYANA · Vendedora (+4 anos)
+- Atendimento comercial, WhatsApp, telefone, orçamentos.
+- **Hipótese de processo (não erro individual):** confirmação de pedido por WhatsApp — cliente
+  responde "ok" após disponibilidade, a venda é tida como confirmada e depois há devolução/divergência.
+  **Investigar se o processo induz isso** (liga a PROC-005 devoluções e ao funil de orçamento).
+- **Classificação:** Maturidade **2/5** · Resistência **Média** · Poder baixo.
 
-## Persona 3: O Responsável Administrativo / Financeiro
+## PERSONA-007 — LEANDRO · Motorista
+- Entregas, **horas extras**, **pernoites**. Usa **formulários impressos**, **não usa ZUMA**.
+- **Classificação:** Maturidade **1/5** · Poder muito baixo.
+- **Implicação:** processos dele são externos/manuais (PROC-006) — fora do MVP.
 
-| Campo | Valor |
-|---|---|
-| Nome fictício | Dona Rosa |
-| Cargo | Administrativo / Financeiro |
-| Frequência de uso do ERP | Diária |
-| Nível técnico | Médio-baixo |
-| Dispositivos | Desktop (Windows) |
-| Principal interesse | Contas a pagar/receber, notas fiscais, financeiro |
-
-### Dores hipotéticas (validar)
-- Processo de emissão de NF-e é complexo no ZUMA
-- Controle de contas a receber exige muitos cliques
-- Conciliação bancária manual
-- Relatórios financeiros difíceis de entender
-
-### O que mais valoriza (hipótese)
-- Processo de NF-e simples e sem erros
-- Visão clara do que vai vencer esta semana (CR e CP)
-- Menos chance de erro nas rotinas fiscais
-
-### Tarefas típicas no sistema
-- [ ] Emitir NF-e
-- [ ] Controlar contas a receber
-- [ ] Registrar pagamentos
-- [ ] Emitir boletos / cobranças
+## PERSONA-008 — BRENDO · Atendimento / Fiscal / Caixa
+- Emissão de NF-e, entrada de materiais, cancelamento de notas, abertura/fechamento de caixa.
+- **Perfil:** aprende rápido, boa adaptação tecnológica.
+- **Classificação:** Maturidade **4/5** · Resistência baixa.
+- **Implicação:** **possível usuário-chave para testes e implantação** (champion técnico).
 
 ---
 
-## Mapa de Funcionalidades por Persona
+## Mapa de Funcionalidades × Persona (atualizado)
 
-| Funcionalidade | Proprietário | Comercial | Administrativo |
-|---|---|---|---|
-| Dashboard de Vendas | ✅ Principal | ✅ | 👁️ Consulta |
-| Cadastro de Clientes | 👁️ | ✅ Principal | 👁️ |
-| Funil de Vendas | ✅ | ✅ Principal | ❌ |
-| Follow-ups | ❌ | ✅ Principal | ❌ |
-| Orçamentos | 👁️ | ✅ Principal | 👁️ |
-| Contas a Receber | ✅ | ❌ | ✅ Principal |
-| Contas a Pagar | ✅ | ❌ | ✅ Principal |
-| Emissão de NF-e | ❌ | ❌ | ✅ Principal |
-| Estoque | ✅ | 👁️ | ❌ |
-| Relatórios | ✅ Principal | 👁️ | ✅ |
+| Funcionalidade | Wanderson | Roberta | Targino/Polyana | Benini | Brendo |
+|---|---|---|---|---|---|
+| Dashboard / indicadores | ✅ Principal | ✅ | 👁️ | ❌ | 👁️ |
+| Clientes / CRM | 👁️ | ✅ | ✅ Principal | ❌ | 👁️ |
+| Orçamentos | ✅ (aprova desconto) | 👁️ | ✅ Principal | ❌ | 👁️ |
+| Comissão | ✅ | ✅ Principal | 👁️ (própria) | ❌ | ❌ |
+| Devoluções | 👁️ | ✅ (confirma) | ✅ (inicia) | ✅ (física) | 👁️ |
+| Crédito / bloqueio | ✅ (decide) | ✅ | 👁️ | ❌ | 👁️ |
+| Caixa / Fiscal (ZUMA) | 👁️ | ✅ | ❌ | ❌ | ✅ Principal |
+| Estoque / entregas | 👁️ | 👁️ | 👁️ | ✅ Principal | ✅ |
 
-**Legenda:** ✅ Usa muito | 👁️ Consulta | ❌ Não usa
-
----
-
-## Mapa de Atores Reais (identificados em 2026-06-23)
-
-> Pessoas reais por trás das personas, extraídas dos processos PROC-001..006.
-
-| Ator | Papel real | Processos | Persona |
-|---|---|---|---|
-| **Wanderson** | Proprietário — vendas, aprovação de desconto, contato principal de certos clientes | PROC-002, aprovação | Proprietário/Gestor |
-| **Polyane** | Vendedora (carteira/região) | PROC-001/002 | Comercial |
-| **Targino** | Vendedor (carteira/região) | PROC-001/002 | Comercial |
-| **Roberta** | Administrativo/Financeiro — fechamento de comissão, confirmação de devolução, crédito | PROC-001/005/006 | Administrativo |
-| **Mãe do proprietário** | Análise e concessão de crédito | PROC-003 | Administrativo (crédito) |
-| **Brendo** | Compras / conferência de devolução (material voltou?) | PROC-001/005, RN-CMP-004 | (novo) Compras/Estoque |
-| **Benini** | Estoque — validação física da devolução | PROC-005 | (novo) Estoque |
-
-> **Lacuna:** as personas hipotéticas não cobriam **Compras/Estoque** (Brendo, Benini) nem o papel
-> de **crédito** (mãe do proprietário). Validar e expandir nas entrevistas.
+**Legenda:** ✅ Usa muito · 👁️ Consulta · ❌ Não usa
 
 ---
 
 ## Próximos Passos
-
-- [ ] Validar estas personas com entrevistas reais (SPRINT-01)
-- [ ] Atualizar dores, tarefas e preferências com dados reais
-- [ ] Detalhar personas de Compras/Estoque (Brendo, Benini) e Crédito
-
----
+- [ ] Validar maturidade/resistência nas entrevistas (autoavaliação atual)
+- [ ] Confirmar Guilherme como Product Owner
+- [ ] Confirmar Brendo como usuário-piloto
 
 ## Histórico de Versões
-
 | Versão | Data | Mudanças |
 |---|---|---|
-| 1.0.0 | 2025 | Criação de personas hipotéticas (pré-entrevistas) |
-| 1.1.0 | 2026-06-23 | +Mapa de atores reais (Wanderson, Polyane, Targino, Roberta, mãe do proprietário, Brendo, Benini) |
+| 1.0.0 | 2025 | Personas hipotéticas (pré-entrevistas) |
+| 1.1.0 | 2026-06-23 | Mapa de atores reais (apêndice) |
+| 2.0.0 | 2026-06-23 | Reescrita — 8 personas operacionais reais + mapa funcionalidade×persona |
