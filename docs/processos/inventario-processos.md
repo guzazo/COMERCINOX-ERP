@@ -198,6 +198,45 @@ trabalhista não é dominada pela empresa)*
 > Estes processos **não entram no MVP** — são trabalhistas/contábeis externos. O ERP pode, no
 > futuro, **exportar** a comissão comercial para reduzir o trabalho manual da Roberta.
 
+## Área 14 — Crédito, Carteira & Bloqueio (NOVO — PROC-002/003/004/005)
+
+| # | Processo | Fase | Criticidade | Origem |
+|---|---|---|---|---|
+| P-61 | Gestão de carteira por vendedor/região (transferência, ausência) | ⚡ Fase 2 | 🟡 | PROC-002 |
+| P-62 | Concessão de crédito (análise manual — mãe do proprietário) | ⚡ Fase 2/3 | 🔴 | PROC-003 |
+| P-63 | Bloqueio de cliente (motivo/data/responsável) | 🔥 MVP* | 🔴 | PROC-004 |
+| P-64 | Devolução com geração de crédito (vendedor→Benini→Roberta) | 🔥 MVP (modelo) | 🔴 | PROC-005 |
+
+\* *Registrar motivo/data/responsável do bloqueio é recomendado para o MVP (3 campos, baixo custo,
+fecha lacuna do ZUMA — a tela de Cliente já mostra status). Histórico de liberações = Fase 2.*
+
+---
+
+## Detalhamento AS-IS (rev. B — 2026-06-23)
+
+### PROC-001 — Fechamento mensal de comissão (Roberta)
+Ferramentas: Zuma + **papel + calculadora**. Fonte: relatório "Vendas por Vendedor".
+Fórmula: **1% da venda líquida** (Lucilene **0,5%**). Devolução só reduz a base **se antes do
+fechamento** e **confirmada fisicamente** (Brendo: material voltou ao estoque?). Fluxo: consulta
+relatório → verifica devoluções → confirma com Brendo → remove itens → calcula à mão → registra em
+papel → paga junto ao salário (1º dia útil da 1ª semana).
+**Problemas:** 100% manual, sem histórico, sem rastreabilidade, dependente de pessoas.
+
+### PROC-003 — Concessão de crédito (mãe do proprietário)
+Critérios: Serasa · 1ª forma de pagamento/relacionamento · **3 comprovantes de fornecedores
+semelhantes** · maior compra · pontualidade · capital social · contrato social · porte · IR.
+Crédito só após análise completa. **Problemas:** sem workflow, critérios não documentados, decisão
+concentrada em 1 pessoa.
+
+### PROC-004 — Bloqueio de clientes
+~15% dos inadimplentes bloqueados no ZUMA. ZUMA **não tem campo de motivo**. Exceção: bloqueado
+**compra à vista** mantendo débito antigo. Futuro: motivo/data/responsável/histórico de liberações.
+
+### PROC-005 — Devolução com geração de crédito
+Vendedor preenche formulário → **Benini** valida retorno físico ao estoque → **Roberta** confirma →
+**crédito lançado manualmente no cadastro do cliente**. **Problemas:** papel, conferência manual,
+sem rastreabilidade digital.
+
 ---
 
 ## Resumo
@@ -217,7 +256,8 @@ trabalhista não é dominada pela empresa)*
 | 11. Comissão & RH (manual) | 5 | 2 |
 | 12. Fiscal | 2 | 0 |
 | 13. Aprovação Comercial | 3 | 1 |
-| **TOTAL** | **60** | **27** |
+| 14. Crédito, Carteira & Bloqueio | 4 | 2 |
+| **TOTAL** | **64** | **29** |
 
 ---
 
@@ -228,3 +268,4 @@ trabalhista não é dominada pela empresa)*
 | 1.0.0 | 2025-06-19 | Criação — 42 processos em 8 áreas, priorizados por fase |
 | 2.0.0 | 2026-06-23 | +15 processos (Logística, Caixa, Comissão/RH manual, Fiscal) = 57 |
 | 2.1.0 | 2026-06-23 | +Aprovação comercial (P-58..60) e AS-IS dos manuais (Roberta, motorista) = 60 |
+| 2.2.0 | 2026-06-23 | +Crédito/Carteira/Bloqueio/Devolução (P-61..64) e AS-IS PROC-001..005 = 64 |

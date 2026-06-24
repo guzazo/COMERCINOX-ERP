@@ -109,6 +109,22 @@ objetivo: visão única das entidades reais antes da modelagem definitiva
 
 ---
 
+## 9. Crédito, Carteira & Bloqueio (rev. B — PROC-002/003/004/005)
+
+| Entidade | Papel | MVP | Origem | Conf. |
+|---|---|---|---|---|
+| **Bloqueio de Cliente** | motivo + data + responsável + histórico de liberações | 🔥 (motivo/data/resp.) / Fase 2 (histórico) | PROC-004 (gap do ZUMA) | A |
+| **Análise de Crédito** | Serasa, 3 referências, maior compra, capital/contrato social, porte, IR | Fase 2 | PROC-003 | A |
+| **Crédito do Cliente (devolução)** | saldo de crédito lançado após devolução validada | 🔥 (modelo) | PROC-005 | A |
+| **Carteira / Região** | vínculo cliente↔vendedor; contato principal (ex.: Wanderson) | 🔥 (vínculo) / Fase 2 (regras) | PROC-002 | A |
+| **Regra de Comissão por Cliente** | override (ex.: **Lucilene 0,5%** vs padrão **1%**) | 🔥 | PROC-001, RN-COM-006/007 | A |
+| **Devolução** (atualiza) | exige **confirmação física** (Benini/Brendo); afeta comissão se antes do fechamento | 🔥 | PROC-001/005 | A |
+
+### Atores reais identificados (ver personas)
+Wanderson (proprietário/vendas) · Polyane, Targino (vendedores) · Roberta (admin/financeiro — comissão,
+fechamento, crédito de devolução) · **mãe do proprietário** (análise de crédito) · Brendo (compras/conferência
+de devolução) · Benini (estoque/validação física de devolução).
+
 ## Entidades NOVAS desta auditoria (não estavam no modelo anterior)
 Pré-venda/Orçamento · Item de pré-venda · Devolução · Caixa/Lançamento · Previsão de fluxo ·
 Romaneio/Carga/Rota/Veículo/Entrega · Separação · NF/Operação fiscal · **Empresa/Grupo Empresarial** ·
@@ -125,3 +141,4 @@ Adiantamento · Despesa de viagem · Fechamento de comissão.
 ## Histórico
 | 1.0.0 | 2026-06-23 | Criação — catálogo de entidades pós-auditoria |
 | 1.1.0 | 2026-06-23 | Multi-empresa rebaixado (1 CNPJ); +Aprovação de Desconto, Benefícios, Hora Extra, Fechamento |
+| 1.2.0 | 2026-06-23 | +Bloqueio, Análise de Crédito, Crédito do Cliente, Carteira/Região, Comissão por cliente; atores reais |

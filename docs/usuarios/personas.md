@@ -125,11 +125,30 @@ criado-em: 2025
 
 ---
 
+## Mapa de Atores Reais (identificados em 2026-06-23)
+
+> Pessoas reais por trás das personas, extraídas dos processos PROC-001..006.
+
+| Ator | Papel real | Processos | Persona |
+|---|---|---|---|
+| **Wanderson** | Proprietário — vendas, aprovação de desconto, contato principal de certos clientes | PROC-002, aprovação | Proprietário/Gestor |
+| **Polyane** | Vendedora (carteira/região) | PROC-001/002 | Comercial |
+| **Targino** | Vendedor (carteira/região) | PROC-001/002 | Comercial |
+| **Roberta** | Administrativo/Financeiro — fechamento de comissão, confirmação de devolução, crédito | PROC-001/005/006 | Administrativo |
+| **Mãe do proprietário** | Análise e concessão de crédito | PROC-003 | Administrativo (crédito) |
+| **Brendo** | Compras / conferência de devolução (material voltou?) | PROC-001/005, RN-CMP-004 | (novo) Compras/Estoque |
+| **Benini** | Estoque — validação física da devolução | PROC-005 | (novo) Estoque |
+
+> **Lacuna:** as personas hipotéticas não cobriam **Compras/Estoque** (Brendo, Benini) nem o papel
+> de **crédito** (mãe do proprietário). Validar e expandir nas entrevistas.
+
+---
+
 ## Próximos Passos
 
 - [ ] Validar estas personas com entrevistas reais (SPRINT-01)
 - [ ] Atualizar dores, tarefas e preferências com dados reais
-- [ ] Identificar se há mais usuários não mapeados aqui
+- [ ] Detalhar personas de Compras/Estoque (Brendo, Benini) e Crédito
 
 ---
 
@@ -138,3 +157,4 @@ criado-em: 2025
 | Versão | Data | Mudanças |
 |---|---|---|
 | 1.0.0 | 2025 | Criação de personas hipotéticas (pré-entrevistas) |
+| 1.1.0 | 2026-06-23 | +Mapa de atores reais (Wanderson, Polyane, Targino, Roberta, mãe do proprietário, Brendo, Benini) |

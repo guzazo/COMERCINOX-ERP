@@ -228,6 +228,49 @@ telas-fonte: TELA-001 a TELA-010
 
 ---
 
+## ESCLARECIMENTOS DE PROCESSO — 2026-06-23 (rev. B)
+
+> Detalhamento dos processos PROC-001..006. Mapeia também os rótulos RN-001..007 do cliente.
+
+### Comissão (PROC-001) — **fórmula concreta**
+| ID | Regra | Origem | Status | Crit. |
+|---|---|---|---|---|
+| RN-COM-006 | **Comissão padrão = 1% da venda líquida do vendedor** (cliente RN-001) | PROC-001 | Confirmada | Alta |
+| RN-COM-007 | **Cliente Lucilene = 0,5%** — override de comissão **por cliente** (RN-002; confirma RN-CLI-004) | PROC-001 | Confirmada | Alta |
+| RN-COM-008 | Devolução reduz comissão **só se identificada antes do fechamento mensal**; após, não desconta (RN-003) | PROC-001 | Confirmada | Alta |
+| RN-COM-009 | Comissão é paga **junto ao salário**, no fechamento da 1ª semana (Roberta) | PROC-001 | Confirmada | Média |
+| RN-COM-010 | Devolução só afeta comissão/crédito após **confirmação física** (Brendo/Benini) — material voltou ao estoque? (RN-006) | PROC-001/005 | Confirmada | Alta |
+
+### Clientes — bloqueio & crédito (PROC-003/004)
+| ID | Regra | Origem | Status | Crit. |
+|---|---|---|---|---|
+| RN-CLI-016 | Cliente **bloqueado pode comprar à vista** mantendo débitos antigos (RN-004) | PROC-004 | Confirmada | Alta |
+| RN-CLI-017 | ZUMA **não registra motivo/data/responsável** do bloqueio | PROC-004 | Confirmada | Alta |
+| RN-CLI-018 | ~**15%** dos inadimplentes são bloqueados | PROC-004 | Confirmada | Média |
+| RN-CRE-001 | Concessão de crédito = **análise manual** (mãe do proprietário): Serasa, 3 referências de fornecedores, maior compra, pontualidade, capital/contrato social, porte, IR (RN-005) | PROC-003 | Confirmada | Alta |
+| RN-CRE-002 | Crédito **só aprovado após análise completa** | PROC-003 | Confirmada | Alta |
+
+### Devolução & crédito (PROC-005)
+| ID | Regra | Origem | Status | Crit. |
+|---|---|---|---|---|
+| RN-DEV-001 | Devolução gera **crédito lançado no cadastro do cliente** após validação física (Benini) + confirmação (Roberta) | PROC-005 | Confirmada | Alta |
+
+### Carteira de clientes (PROC-002)
+| ID | Regra | Origem | Status | Crit. |
+|---|---|---|---|---|
+| RN-CAR-001 | Carteira por **vendedor/região** (Polyane, Targino); na ausência, o outro atende | PROC-002 | Confirmada | Média |
+| RN-CAR-002 | **Sem regra formal** de propriedade/transferência nem de impacto na comissão quando outro atende | PROC-002 | Lacuna ❓ | Alta |
+| RN-CAR-003 | Alguns clientes negociam **exclusivamente com Wanderson** (proprietário) como contato principal | PROC-002 | Confirmada | Média |
+
+### RH (PROC-006)
+| ID | Regra | Origem | Status | Crit. |
+|---|---|---|---|---|
+| RN-BEN-007 | Hora extra existe **somente para motoristas** (RN-007; reforça RN-BEN-004) | PROC-006 | Confirmada | Média |
+
+> **Total acumulado:** 95 + **14 (rev. B)** = **109 regras**. ❓/Lacuna = validar nas entrevistas.
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Mudanças |
@@ -235,3 +278,4 @@ telas-fonte: TELA-001 a TELA-010
 | 1.0.0 | 2025-06-19 | Criação — 51 regras extraídas de 10 telas mapeadas na Sprint 01 |
 | 2.0.0 | 2026-06-23 | +27 regras (Pré-venda, Logística, Financeiro/Caixa, Fiscal, Comissão/RH, multi-empresa) |
 | 2.1.0 | 2026-06-23 | +17 (Aprovação comercial, Benefícios/RH, licença ZUMA); multi-empresa resolvido = 95 |
+| 2.2.0 | 2026-06-23 | +14 (comissão 1%/Lucilene, devolução-timing, crédito, bloqueio, carteira) = 109 |

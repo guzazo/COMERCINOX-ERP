@@ -225,6 +225,57 @@ deve constar nos riscos de dependência.
 
 ---
 
+# ADENDO v4 — Processos PROC-001..006 (2026-06-23)
+
+## N. Comissão — fórmula agora CONCRETA (impacto positivo no MVP)
+Antes a fórmula era "pergunta em aberto"; agora é evidência:
+- **Comissão = 1% × venda líquida**; **override por cliente** (Lucilene **0,5%**).
+- Devolução reduz a base **só se antes do fechamento mensal** e **confirmada fisicamente**.
+- ⇒ O MVP de comissão (FEAT-002) ganha regra fechada. **Requer 2 conceitos no modelo:**
+  (a) **% por cliente** sobrepõe a % do vendedor; (b) **período/fechamento** + **status de devolução
+  confirmada** (senão a devolução tardia não pode alterar comissão já paga).
+
+## O. Bloqueio de cliente — recomendado entrar no MVP (com justificativa)
+PROC-004: o ZUMA **não registra motivo/data/responsável** do bloqueio (lacuna real).
+| Capacidade | Fase | Justificativa |
+|---|---|---|
+| **Motivo + data + responsável** do bloqueio | 🔥 **MVP (recomendado)** | 3 campos; a tela de Cliente já mostra status; fecha lacuna documentada; baixo custo |
+| Histórico de liberações | **Fase 2** | Auditoria; incremento posterior |
+> O cliente classificou como "oportunidade futura"; recomendo **antecipar só os 3 campos** — decisão de vocês.
+
+## P. Crédito — Fase 2/3 (não inflar o MVP)
+PROC-003: análise manual (mãe do proprietário) com muitos critérios. **MVP mantém apenas o campo
+`limite de crédito`** (já em RN-CLI-006). O **workflow de análise** (Serasa, referências, parecer) é
+**Fase 2/3**. Decisão de bloqueio por crédito hoje é informativa — validar se passa a bloquear venda.
+
+## Q. Carteira / Região — vínculo no MVP, regras na Fase 2
+PROC-002: vínculo cliente↔vendedor já é MVP (RN-CLI-003). Mas **não há regra formal** de
+propriedade/transferência nem de **impacto na comissão quando outro vendedor atende** (RN-CAR-002 =
+lacuna ❓). **Não modelar regra sem validação.** "Contato principal = Wanderson" → prever um campo
+`contato_principal` no cliente (barato).
+
+## R. Devolução com crédito — modelo no MVP, workflow depois
+PROC-005: devolução gera **crédito no cadastro do cliente** após validação física (Benini→Roberta).
+- **MVP:** entidade **Crédito do Cliente** + **Devolução** (afeta comissão) no modelo.
+- **Fase 2/3:** workflow digital de devolução (formulário→conferência→crédito) substituindo o papel.
+
+## S. Atualização da separação por fase
+| Capacidade | Fase |
+|---|---|
+| Comissão **1% / override por cliente / devolução-antes-do-fechamento**; **motivo de bloqueio**; vínculo carteira; crédito-de-devolução (modelo) | **MVP** |
+| Workflow de aprovação de desconto; **histórico de bloqueio**; **regras de carteira/transferência**; workflow de devolução | **Fase 2** |
+| **Análise de crédito** (Serasa/referências); margem mínima; logística | **Fase 3** |
+| Automação do fechamento (Roberta), horas extras, benefícios | **Oportunidade futura** |
+
+## T. Riscos novos
+| R | Risco | Mitigação |
+|---|---|---|
+| R13 | Comissão sem conceito de **fechamento/período** | Modelar período + travar comissão paga (devolução tardia não altera) |
+| R14 | % de comissão só no vendedor | **% por cliente sobrepõe** a do vendedar (Lucilene) — desde o schema |
+| R15 | Carteira sem regra de comissão quando outro atende | **Lacuna RN-CAR-002 — validar antes de codar** |
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Mudanças |
@@ -232,3 +283,4 @@ deve constar nos riscos de dependência.
 | 1.0.0 | 2026-06-20 | Revisão crítica — 14 lacunas, 8 riscos de retrabalho, escopo MVP/futuro |
 | 2.0.0 | 2026-06-23 | Adendo pós-auditoria: 12 entidades novas, 4 fluxos, R9–R12, multi-empresa como bloqueador |
 | 3.0.0 | 2026-06-23 | Multi-empresa RESOLVIDO (1 CNPJ operacional); aprovação de desconto; licença ZUMA; fases MVP/2/3/futuro |
+| 4.0.0 | 2026-06-23 | PROC-001..006: comissão 1%/override, bloqueio-motivo (MVP), crédito (Fase 2/3), carteira, devolução-crédito; R13–R15 |
