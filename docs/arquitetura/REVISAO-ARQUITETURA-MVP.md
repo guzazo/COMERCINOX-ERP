@@ -227,21 +227,25 @@ deve constar nos riscos de dependência.
 
 # ADENDO v4 — Processos PROC-001..006 (2026-06-23)
 
-## N. Comissão — fórmula agora CONCRETA (impacto positivo no MVP)
+## N. Comissão — fórmula agora CONCRETA
 Antes a fórmula era "pergunta em aberto"; agora é evidência:
-- **Comissão = 1% × venda líquida**; **override por cliente** (Lucilene **0,5%**).
+- **Comissão = 1% × venda líquida** (regra padrão confirmada).
+- **Lucilene = 0,5%** → *exceção por cliente*. ⚠️ **Não sabemos se há outros clientes com regra
+  especial** → o **override de % por cliente é REQUISITO FUTURO** (ver §U), não entra no MVP agora.
 - Devolução reduz a base **só se antes do fechamento mensal** e **confirmada fisicamente**.
-- ⇒ O MVP de comissão (FEAT-002) ganha regra fechada. **Requer 2 conceitos no modelo:**
-  (a) **% por cliente** sobrepõe a % do vendedor; (b) **período/fechamento** + **status de devolução
-  confirmada** (senão a devolução tardia não pode alterar comissão já paga).
+- ⇒ MVP de comissão (FEAT-002) = **1% sobre a venda líquida − devoluções (confirmadas) − adiantamentos**,
+  com conceito de **período/fechamento** (trava comissão paga). O modelo deve ser **extensível** para
+  % por cliente, mas a UI/regra de exceção só entra após validação.
 
-## O. Bloqueio de cliente — recomendado entrar no MVP (com justificativa)
+## O. Bloqueio de cliente — OPORTUNIDADE identificada (não-MVP até validar)
 PROC-004: o ZUMA **não registra motivo/data/responsável** do bloqueio (lacuna real).
-| Capacidade | Fase | Justificativa |
-|---|---|---|
-| **Motivo + data + responsável** do bloqueio | 🔥 **MVP (recomendado)** | 3 campos; a tela de Cliente já mostra status; fecha lacuna documentada; baixo custo |
-| Histórico de liberações | **Fase 2** | Auditoria; incremento posterior |
-> O cliente classificou como "oportunidade futura"; recomendo **antecipar só os 3 campos** — decisão de vocês.
+**Decisão de escopo (cliente, 2026-06-23):** motivo/data/responsável do bloqueio são **oportunidade
+identificada**, mas **NÃO entram na spec do MVP sem validação** de uso recorrente no processo real.
+| Capacidade | Situação |
+|---|---|
+| Motivo + data + responsável do bloqueio | **Oportunidade — validar antes** (não-MVP) |
+| Histórico de liberações | Futuro |
+> Princípio: campo só entra no MVP com **evidência clara de uso recorrente**, não por parecer útil.
 
 ## P. Crédito — Fase 2/3 (não inflar o MVP)
 PROC-003: análise manual (mãe do proprietário) com muitos critérios. **MVP mantém apenas o campo
@@ -259,20 +263,31 @@ PROC-005: devolução gera **crédito no cadastro do cliente** após validação
 - **MVP:** entidade **Crédito do Cliente** + **Devolução** (afeta comissão) no modelo.
 - **Fase 2/3:** workflow digital de devolução (formulário→conferência→crédito) substituindo o papel.
 
-## S. Atualização da separação por fase
+## S. Atualização da separação por fase (revisada pela governança)
 | Capacidade | Fase |
 |---|---|
-| Comissão **1% / override por cliente / devolução-antes-do-fechamento**; **motivo de bloqueio**; vínculo carteira; crédito-de-devolução (modelo) | **MVP** |
-| Workflow de aprovação de desconto; **histórico de bloqueio**; **regras de carteira/transferência**; workflow de devolução | **Fase 2** |
+| Comissão **1% sobre venda líquida − devoluções confirmadas − adiantamentos** (com período/fechamento); vínculo carteira (cliente↔vendedor); crédito-de-devolução (modelo) | **MVP** |
+| Workflow de aprovação de desconto; **% de comissão por cliente** (override); workflow de devolução; regras de carteira/transferência | **Fase 2 (após validação)** |
 | **Análise de crédito** (Serasa/referências); margem mínima; logística | **Fase 3** |
-| Automação do fechamento (Roberta), horas extras, benefícios | **Oportunidade futura** |
+| Automação do fechamento (Roberta), horas extras, benefícios; **motivo/data/responsável de bloqueio** | **Oportunidade futura (validar uso recorrente)** |
 
 ## T. Riscos novos
 | R | Risco | Mitigação |
 |---|---|---|
 | R13 | Comissão sem conceito de **fechamento/período** | Modelar período + travar comissão paga (devolução tardia não altera) |
-| R14 | % de comissão só no vendedor | **% por cliente sobrepõe** a do vendedar (Lucilene) — desde o schema |
+| R14 | % de comissão só no vendedor | Manter modelo **extensível** a % por cliente — mas **não** implementar override no MVP até validar |
 | R15 | Carteira sem regra de comissão quando outro atende | **Lacuna RN-CAR-002 — validar antes de codar** |
+
+## U. Governança de escopo (decisão do cliente — 2026-06-23)
+> Princípio reforçado: **campo/funcionalidade só entra no MVP com evidência clara de uso recorrente
+> no processo real — nunca por "parecer útil".**
+
+| Item | Decisão |
+|---|---|
+| % de comissão por cliente (Lucilene 0,5%) | **Requisito futuro** — validar se há outros clientes com regra especial antes de modelar override |
+| Motivo / data / responsável do bloqueio | **Oportunidade identificada** — não entra no MVP sem validação de uso recorrente |
+| `contato_principal` (Wanderson) | Não antecipar — depende de validação (PROC-002) |
+| Telas do Sprint 1 | **Não alterar** — seguir Descoberta→Processo→RN→Problemas→Validação→Requisitos→Wireframe→Implementação |
 
 ---
 
@@ -284,3 +299,4 @@ PROC-005: devolução gera **crédito no cadastro do cliente** após validação
 | 2.0.0 | 2026-06-23 | Adendo pós-auditoria: 12 entidades novas, 4 fluxos, R9–R12, multi-empresa como bloqueador |
 | 3.0.0 | 2026-06-23 | Multi-empresa RESOLVIDO (1 CNPJ operacional); aprovação de desconto; licença ZUMA; fases MVP/2/3/futuro |
 | 4.0.0 | 2026-06-23 | PROC-001..006: comissão 1%/override, bloqueio-motivo (MVP), crédito (Fase 2/3), carteira, devolução-crédito; R13–R15 |
+| 4.1.0 | 2026-06-23 | Governança §U: % por cliente e motivo-de-bloqueio retirados do MVP (requisito futuro/oportunidade); telas Sprint 1 intocadas |
