@@ -58,6 +58,8 @@ objetivo: visão única das entidades reais antes da modelagem definitiva
 | **Localização / Depósito** | 1,2,5,10 | 🔥 | RN-PRD-001 | A |
 | **Categoria / Grupo de Produto** | classificação | ⚡ | TELA-004 (filtros) | B |
 | **Formação de Preço** | precificação além da tabela (Ctrl+F6) | ⚡ | RN-PRD-010 | C |
+| **Movimentação / Ajuste de Estoque** | entrada/saída/ajuste; divergência físico×sistema | ⚡ (PROC-007) | PERSONA-004 | B |
+| **Inventário** | contagem física periódica | ⚡ (PROC-007) | PERSONA-004 | B |
 
 ## 4. Financeiro (permanece no ZUMA)
 
@@ -142,3 +144,4 @@ Adiantamento · Despesa de viagem · Fechamento de comissão.
 | 1.0.0 | 2026-06-23 | Criação — catálogo de entidades pós-auditoria |
 | 1.1.0 | 2026-06-23 | Multi-empresa rebaixado (1 CNPJ); +Aprovação de Desconto, Benefícios, Hora Extra, Fechamento |
 | 1.2.0 | 2026-06-23 | +Bloqueio, Análise de Crédito, Crédito do Cliente, Carteira/Região, Comissão por cliente; atores reais |
+| 1.3.0 | 2026-06-23 | +Movimentação/Ajuste de Estoque e Inventário (PROCESSO-007 / Benini) |

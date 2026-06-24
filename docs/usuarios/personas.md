@@ -41,12 +41,22 @@ relacionado-com: MAPA-INFLUENCIA-ORGANIZACIONAL, PERGUNTAS-ABERTAS, ROTEIRO-ENTR
 - **Classificação:** Poder **Baixo** · Maturidade **5/5** · Resistência **Muito baixa**.
 - **Implicação:** **possível Product Owner** do ERP — ponte entre operação e desenvolvimento.
 
-## PERSONA-004 — BENINI · Estoque / Operações (+5 anos)
-- **Responsabilidades:** recebimento, **conferência de devoluções**, organização do estoque,
-  preparação de caminhões, abertura da empresa.
-- **Perfil:** muito confiável, forte conhecimento operacional e logístico.
-- **Classificação:** Maturidade **2/5** · Resistência **Média/Alta** · Poder baixo (operacional crítico).
-- **Implicação:** dono do passo físico da devolução (PROC-005) e do estoque — UI simples, pouco texto.
+## PERSONA-004 — BENINI · Estoque / Operações (+5 anos) — ⭐ USUÁRIO-CHAVE DO ESTOQUE
+> **Revisão 2026-06-23:** descobertas anteriores **subdimensionavam** o Benini. É **o principal
+> responsável pela confiabilidade do estoque físico** — entrada, saída e devolução dependem da
+> validação dele.
+- **Responsabilidades (ampliadas):** **cadastro de novos produtos no ZUMA**, entrada de produtos,
+  conferência de materiais recebidos, **conferência e validação física de devoluções**, separação
+  para entrega, preparação do caminhão para rotas, controle do galpão, abertura da empresa,
+  controle da movimentação física do estoque.
+- **Perfil:** muito confiável; conhecimento operacional e logístico profundo.
+- **Classificação:** Maturidade digital **2/5** · **Conhecimento operacional 5/5** · Resistência **Média/Alta** ·
+  Poder formal baixo, mas **criticidade operacional Alta**.
+- **Impacto direto em:** Estoque · Devoluções · Crédito de devolução · Entregas · **Cadastro de produtos**.
+- **🔴 Risco (bus factor):** **regras práticas do estoque concentradas numa única pessoa** — perda de
+  conhecimento se ele faltar. Entrevistá-lo a fundo é **prioridade alta** (ver PROCESSO-007 e roteiro).
+- **Implicação:** dono dos passos físicos (devolução/estoque/separação) — UI simples, pouco texto;
+  e fonte primária para documentar PROCESSO-007.
 
 ## PERSONA-005 — TARGINO · Vendedor (+5 anos)
 - Atendimento comercial, WhatsApp, telefone, orçamentos.
@@ -101,3 +111,4 @@ relacionado-com: MAPA-INFLUENCIA-ORGANIZACIONAL, PERGUNTAS-ABERTAS, ROTEIRO-ENTR
 | 1.0.0 | 2025 | Personas hipotéticas (pré-entrevistas) |
 | 1.1.0 | 2026-06-23 | Mapa de atores reais (apêndice) |
 | 2.0.0 | 2026-06-23 | Reescrita — 8 personas operacionais reais + mapa funcionalidade×persona |
+| 2.1.0 | 2026-06-23 | Benini reclassificado: usuário-chave do estoque, conhecimento 5/5, risco bus-factor, PROCESSO-007 |

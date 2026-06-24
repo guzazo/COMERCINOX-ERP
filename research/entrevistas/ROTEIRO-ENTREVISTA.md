@@ -37,12 +37,32 @@ que é feito fora do sistema, em papel ou Excel. Não há resposta errada."
 7. ☐ Quais **controles em Excel/papel** você mantém hoje? Quais não larga de jeito nenhum?
 8. ☐ O que mais te **toma tempo** ou gera retrabalho no mês?
 
-## 📦 BENINI — Estoque/Operações  · *(prioridades 3, 4)*
-1. ☐ Como confere se o **material devolvido voltou** ao estoque? Há prazo?
-2. ☐ O que acontece quando o material **não** retorna (ainda está com o cliente)?
-3. ☐ A devolução **baixa o estoque** no ZUMA automaticamente ou é manual?
-4. ☐ Como organiza recebimento e **preparação de caminhões** hoje?
-5. ☐ O **estoque negativo** acontece? Como vocês lidam quando o saldo fica abaixo de zero?
+## 📦 BENINI — Estoque/Operações  · ⭐ *(prioridades 3, 4 — ENTREVISTA APROFUNDADA, PROC-007)*
+> Usuário-chave do estoque + **risco de conhecimento concentrado**. Reserve mais tempo (45–60 min).
+> Objetivo: documentar o **PROCESSO-007** (entrada, cadastro, separação, devolução, ajustes, inventário).
+
+**Entrada de material**
+1. ☐ Passo a passo do **recebimento** de mercadoria, da chegada à entrada no ZUMA.
+2. ☐ Como **confere** se veio certo (quantidade/peso/qualidade)? O que faz em divergência?
+
+**Cadastro de produto**
+3. ☐ Como **cadastra um produto novo** no ZUMA? Que campos preenche? O que costuma dar errado?
+4. ☐ Como define unidade (KG/MT/PC/UN) e quem te passa preço/dados?
+
+**Separação para entrega**
+5. ☐ Como **separa o material** para a rota? Usa romaneio? Como prepara o caminhão?
+
+**Conferência de devolução** *(liga PROC-005)*
+6. ☐ Como confere se o **material devolvido voltou** ao estoque? Há prazo?
+7. ☐ O que acontece quando o material **não** retorna (ainda está com o cliente)?
+8. ☐ A devolução **baixa o estoque** no ZUMA automaticamente ou é manual?
+
+**Ajustes / divergências / inventário**
+9. ☐ O **estoque negativo** acontece? Como lida quando o saldo fica abaixo de zero?
+10. ☐ Como corrige **divergência** entre o físico e o ZUMA? Quem autoriza o ajuste?
+11. ☐ Faz **inventário**? Com que frequência? Como?
+12. ☐ Quais os **problemas recorrentes** do estoque que mais te atrapalham?
+13. ☐ Há regras suas que **só você sabe**? (objetivo: registrar o conhecimento tácito)
 
 ## 🧾 BRENDO — Atendimento/Fiscal/Caixa  · *(prioridades 3, 5)*
 1. ☐ Seu papel na **devolução** vs. o do Benini — onde começa e termina cada um?
@@ -78,7 +98,7 @@ que é feito fora do sistema, em papel ou Excel. Não há resposta errada."
 | 1. Comissão e carteira | Wanderson, Roberta, Targino, Polyana |
 | 2. Crédito e bloqueio | Wanderson, Roberta *(+ mãe do proprietário, se possível)* |
 | 3. Devoluções | Roberta, Benini, Brendo, Targino, Polyana |
-| 4. Estoque | Benini |
+| 4. Estoque (PROC-007 — aprofundado) | **Benini** ⭐ |
 | 5. Fechamento financeiro | Roberta, Brendo |
 | 6. Benefícios e folha | Leandro, Roberta |
 
@@ -87,3 +107,4 @@ que é feito fora do sistema, em papel ou Excel. Não há resposta errada."
 
 ## Histórico de Versões
 | 1.0.0 | 2026-06-23 | Criação — roteiro por pessoa (7), priorizado pelos 6 temas |
+| 1.1.0 | 2026-06-23 | Benini: entrevista aprofundada (13 perguntas, PROCESSO-007) |

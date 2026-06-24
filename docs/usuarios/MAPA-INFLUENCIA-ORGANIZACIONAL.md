@@ -82,7 +82,7 @@ quadrantChart
 |---|---|---|---|---|
 | **Wanderson** | Média/Alta | 2/5 | 🔴 Crítico (decide tudo) | Envolver cedo; ERP como apoio à decisão, não substituto; ganhos visíveis |
 | **Roberta** | Média | 3/5 | 🔴 Crítico (usuária-chave) | Respeitar Excel (importar/exportar); migração gradual; co-design |
-| **Benini** | Média/Alta | 2/5 | 🟡 Médio (operacional) | UI simples; treinar no físico (devolução/estoque) |
+| **Benini** | Média/Alta | 2/5 (oper. **5/5**) | 🔴 **Alto** (bus factor do estoque) | **Entrevista dedicada (PROC-007)**; documentar conhecimento tácito; UI simples; treinar no físico |
 | **Targino** | Média | 2/5 | 🟡 Médio | Treino prático; mostrar velocidade no orçamento |
 | **Polyana** | Média | 2/5 | 🟡 Médio | Idem; revisar processo de confirmação WhatsApp |
 | **Leandro** | n/d | 1/5 | 🟢 Baixo (externo) | Fora do MVP; eventual app simples no futuro |
@@ -101,7 +101,7 @@ quadrantChart
 | 1 | **Roberta** | Comissão, crédito, devolução, fechamento | Usuária-âncora / validação |
 | 2 | **Wanderson** | Decisão, aprovação de desconto, carteira | Patrocinador |
 | 3 | **Brendo** | Caixa/fiscal | **Piloto / champion técnico** |
-| 4 | **Benini** | Devolução física, estoque | Validação operacional |
+| 3 (empate) | **Benini** ⭐ | **Estoque (PROC-007), devolução física, cadastro de produto** — risco bus-factor | Usuário-chave do módulo de estoque |
 | 5 | **Targino + Polyana** | Carteira, orçamento, WhatsApp | Usuários diários |
 | 6 | **Leandro** | Horas extras/pernoite (externo) | Fora do MVP |
 
@@ -109,3 +109,4 @@ quadrantChart
 
 ## Histórico de Versões
 | 1.0.0 | 2026-06-23 | Criação — mapa de influência, Poder×Interesse, Resistência, usuários-chave |
+| 1.1.0 | 2026-06-23 | Benini reclassificado: criticidade operacional alta + risco bus-factor (estoque) |
